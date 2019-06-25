@@ -1,0 +1,212 @@
+$base-font-size: 14px;
+$dark: #1b1c1d;
+$grey: #222222;
+$light-grey: #747676;
+$white: #f0f1f1;
+$turquoise: #00ffff;
+
+body {
+  background-color: $dark;
+  font-family: Arial;
+  font-size: $base-font-size;
+  font-weight: 400;
+  color: $white;
+  margin: 0;
+  // padding: 0 100px;
+}
+
+h3 {
+  font-weight: 300;
+  font-size: 17px;
+}
+
+hr {
+  border: 1px solid $grey;
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  max-width: 1024px;
+}
+
+.SearchHeader {
+  position: relative;
+  display: flex;
+  padding: 20px 0;
+
+  .Searchbox {
+    position: relative;
+    flex: 1;
+    display: flex;
+
+    &__result {
+      display: none;
+      position: absolute;
+      top: 65px;
+      width: calc(100% - 40px);
+      background-color: #222222;
+      font-size: 13px;
+      color: $light-grey;
+      padding: 20px;
+      z-index: 1111;
+
+      &::before {
+        content: ' ';
+        width: 0;
+        top: -8px;
+        left: 40px;
+        position: absolute;
+        height: 0;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-bottom: 8px solid $grey;
+      }
+
+      &.active {
+        display: block;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 10px 0 0 0;
+        li {
+          padding: 6px 15px;
+          border-bottom: 1px solid $dark;
+          a {
+            display: inline-block;
+            cursor: pointer;
+            width: 100%;
+            &:hover {
+              color: turquoise;
+            }
+          }
+        }
+      }
+    }
+
+    input {
+      background-color: #222222;
+      height: 50px;
+      width: 100%;
+      color: #ffffff;
+      font-size: 15px;
+      border: none;
+      padding: 0 20px;
+      border-radius: 3px;
+    }
+  }
+
+  button {
+    appearance: none;
+    height: 50px;
+    background-color: $turquoise;
+    font-size: 15px;
+    text-align: center;
+    padding: 0 30px;
+    border: none;
+    border-radius: 3px;
+    margin-left: 20px;
+    cursor: pointer;
+  }
+}
+
+.AlbumsCarousel {
+  h4 {
+    font-weight: 300;
+    font-size: 17px;
+    color: $turquoise;
+  }
+  &__block {
+    display: flex;
+    padding: 0 0 0 15px;
+    overflow: scroll;
+    &::-webkit-scrollbar {
+      display: none; // Safari and Chrome
+    }
+
+    &__item {
+      display: block;
+      min-height: 150px;
+      width: 150px;
+      margin-right: 20px;
+      cursor: pointer;
+      &:hover {
+        opacity: 0.8;
+        color: $turquoise;
+      }
+
+      img {
+        width: 150px;
+        height: 150px;
+      }
+
+      .title {
+        display: block;
+        color: $white;
+        text-align: center;
+        padding: 5px 0 0 0;
+      }
+    }
+  }
+}
+
+.AlbumTracklist {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  margin-top: 35px;
+
+  img {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 150px;
+    height: 150px;
+  }
+
+  h3 {
+    padding: 25px 0 30px 205px;
+    margin: 0;
+  }
+
+  .tracklist {
+    width: 100%;
+
+    &__item {
+      display: grid;
+      grid-template-columns: 20px 250px 100px 80px 80px;
+      grid-column-gap: 10px;
+      align-items: center;
+      height: 35px;
+      color: inherit;
+      text-decoration: none;
+      background-color: #292a2b;
+      padding: 0 0 0 205px;
+      cursor: pointer;
+      &:hover {
+        color: $turquoise;
+      }
+
+      &.col-head {
+        background-color: $dark;
+
+        span {
+          font-weight: 600;
+          color: $white;
+          cursor: initial;
+        }
+      }
+
+      span {
+        display: block;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+    }
+  }
+}
